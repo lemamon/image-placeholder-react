@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import defaultPlaceholder from "./../../images/placeholder.jpg";
+import defaultPlaceholder from "./../../assets/images/placeholder.jpg";
+import Container from "../Container";
+import { IImage } from "../../types";
 
-interface IImage {
-  src: string;
-  name: string;
-  placeholder?: string;
-}
-const Image = ({ src, placeholder = defaultPlaceholder }: IImage) => {
+const Image = ({
+  src,
+  alt,
+  placeholder = defaultPlaceholder,
+  ...props
+}: IImage) => {
   const [imageIsReady, setImageIsReady] = useState(false);
 
   useEffect(() => {
@@ -16,16 +18,9 @@ const Image = ({ src, placeholder = defaultPlaceholder }: IImage) => {
   }, [src]);
 
   return (
-    <div
-      style={{
-        background: imageIsReady ? "transparent" : `url(${placeholder})`,
-        backgroundSize: "100% 100%",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {imageIsReady ? <img src={src} alt={`product`} /> : ""}
-    </div>
+    <Container isReady={imageIsReady} bgImage={placeholder}>
+      {imageIsReady ? <img src={src} alt={alt} {...props} /> : ""}
+    </Container>
   );
 };
 
