@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image component The snapshot of the component  must be the same 1`] = `
+<div
+  class="sc-bdnxRM tHtPp"
+  data-testid="component-container"
+/>
+`;
