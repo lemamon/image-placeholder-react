@@ -18,8 +18,16 @@ const Image = ({
   }, [src]);
 
   return (
-    <Container isReady={imageIsReady} bgImage={placeholder}>
-      {imageIsReady ? <img src={src} alt={alt} {...props} /> : ""}
+    <Container
+      data-testid="component-container"
+      isReady={imageIsReady}
+      bgImage={placeholder}
+    >
+      {imageIsReady ? (
+        <img data-testid="component-image" src={src} alt={alt} {...props} />
+      ) : (
+        ""
+      )}
     </Container>
   );
 };
