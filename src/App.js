@@ -1,5 +1,5 @@
 import Image from "./components/Image";
-import placeholder from "./images/placeholder.jpg";
+import placeholder from "./assets/images/placeholder.jpg";
 
 function App() {
   return (
